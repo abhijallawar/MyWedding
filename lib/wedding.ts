@@ -29,6 +29,11 @@ export const events = [...wedding.events].sort((a, b) => eventDate(a) - eventDat
 export const ceremony = wedding.events.find((event) => event.id === wedding.ceremonyId)!;
 export const ceremonyDate = eventDate(ceremony);
 
+export function eventVenue(event: Event) {
+  const venue = wedding.venues[event.venue];
+  return { ...venue, name: "venueName" in event ? event.venueName : venue.name };
+}
+
 export function dateLabel(event: Event, weekday = false, year: number = wedding.year) {
   const timestamp = eventDate(event, year);
   if (!Number.isFinite(timestamp)) {
@@ -76,7 +81,7 @@ function fold(line: string) {
 export function calendar(event: Event, year: number = wedding.year) {
   const target = eventDate(event, year);
   if (!Number.isFinite(target)) return null;
-  const venue = wedding.venues[event.venue];
+  const venue = eventVenue(event);
   const location = [...new Set([venue.name, venue.address, venue.locality].filter(Boolean))].join(", ");
   return [
     "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//A and H//Wedding Invitation//EN", "CALSCALE:GREGORIAN",

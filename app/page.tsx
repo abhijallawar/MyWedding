@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowDown, ArrowRight, ArrowUpRight, CalendarPlus, MapPin } from "lucide-react";
 import { wedding } from "../config/wedding";
-import { ceremony, ceremonyDate, dateLabel, eventDate, events, timeLabel } from "../lib/wedding";
+import { ceremony, ceremonyDate, dateLabel, eventDate, eventVenue, events, timeLabel } from "../lib/wedding";
 import { Flourish, Lotus, Motif } from "../components/ornaments";
 import SceneMotion from "../components/scene-motion";
 import Countdown from "../components/countdown";
@@ -82,7 +82,7 @@ export default function Invitation() {
         </div>
         <ol className="timeline mx-auto">
           {events.map((event) => {
-            const venue = wedding.venues[event.venue];
+            const venue = eventVenue(event);
             const start = eventDate(event);
             return <li key={event.id} className={`event event-${event.id}`} data-reveal>
               <div className="event-art"><Motif kind={event.id}/></div>
@@ -92,7 +92,7 @@ export default function Invitation() {
                 <p className="event-location"><MapPin size={15} aria-hidden="true"/><span>{venue.name}
                   {venue.locality && <small>{venue.locality}</small>}{venue.address && venue.address !== venue.name && <small>{venue.address}</small>}
                 </span></p>
-                <p className="event-copy">{event.line}</p>
+                {"line" in event && <p className="event-copy">{event.line}</p>}
                 <div className="flex flex-wrap items-center event-actions">
                   <Directions href={venue.directions} label={event.name}/>
                   {Number.isFinite(start) && <a className="text-action" href={`/calendar/${event.id}-${wedding.year}.ics`}

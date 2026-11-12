@@ -19,9 +19,9 @@ export const wedding = {
   },
   venues: {
     sindewahi: {
-      title: "Haldi & Sangeet",
+      title: "Sindewahi",
       emblem: "haldi",
-      name: "Haldi & Sangeet venue",
+      name: "Sindewahi venue",
       address: null,
       locality: "Sindewahi, Maharashtra",
       directions: "https://maps.app.goo.gl/9a8JMo26DyrvSDoZ8",
@@ -44,8 +44,8 @@ export const wedding = {
     },
   },
   events: [
-    { id: "haldi", name: "Haldi", month: 12, day: 11, time: "12:00", venue: "sindewahi", line: "An afternoon of turmeric, sunshine and good wishes." },
-    { id: "sangeet", name: "Sangeet", month: 12, day: 11, time: "19:30", venue: "sindewahi", line: "An evening of music and dancing together." },
+    { id: "haldi", name: "Haldi", month: 12, day: 11, time: "12:00", venue: "sindewahi", venueName: "Haldi venue" },
+    { id: "sangeet", name: "Sangeet", month: 12, day: 11, time: "19:30", venue: "sindewahi", venueName: "Sangeet venue" },
     { id: "wedding", name: "Wedding", month: 12, day: 12, time: "12:07", venue: "wedding", line: "Join us as we take our vows and begin our married life." },
     { id: "reception", name: "Reception", month: 12, day: 13, time: "19:00", venue: "reception", line: "One more evening to celebrate with the people we love." },
   ],
