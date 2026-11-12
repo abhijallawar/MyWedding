@@ -8,10 +8,14 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function animatePortrait(portrait: HTMLElement) {
-  gsap.timeline({ scrollTrigger: { trigger: portrait, start: "top 86%", toggleActions: "play none none none" } })
-    .from(".couple-illustration", { y: 11, rotation: -3, scale: .96, duration: 1.25, ease: "power2.out" }, 0)
-    .from(".portrait-sparkle", { scale: .35, opacity: .18, rotation: -22, duration: .7, stagger: .14, ease: "power2.out" }, .27)
-    .from(".portrait-petal", { y: -19, opacity: .18, duration: 1.25, stagger: .12, ease: "sine.out" }, .2);
+  gsap.from(portrait, {
+    y: 11,
+    rotation: -3,
+    scale: .96,
+    duration: 1.25,
+    ease: "power2.out",
+    scrollTrigger: { trigger: portrait, start: "top 86%", toggleActions: "play none none none" },
+  });
 }
 
 function animateMotif(motif: SVGSVGElement) {

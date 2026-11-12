@@ -61,7 +61,7 @@ export default function Invitation() {
         <Image src="/art/sprig.svg" className="welcome-sprig welcome-sprig-left" alt="" width={350} height={350} unoptimized/>
         <Image src="/art/sprig.svg" className="welcome-sprig welcome-sprig-right" alt="" width={350} height={350} unoptimized/>
         <div className="welcome-layout mx-auto">
-          <CouplePortrait monogram={wedding.monogram}/>
+          <CouplePortrait/>
           <div className="welcome-copy" data-reveal>
             <Flourish/>
             <h2 id="welcome-title">With love and blessings</h2>
