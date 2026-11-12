@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronsDown } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Lotus } from "./ornaments";
 
@@ -27,7 +28,7 @@ export default function InvitationEntrance({ soundtrack, children }: {
       <div inert={stage !== "open"}>{children}</div>
       {stage !== "open" && (
         <div
-          className="invitation-envelope"
+          className="invitation-cover"
           data-stage={stage}
           role="dialog"
           aria-modal="true"
@@ -38,20 +39,24 @@ export default function InvitationEntrance({ soundtrack, children }: {
         >
           <button
             type="button"
-            className="envelope-paper"
+            className="cover-surface"
             onClick={openInvitation}
-            aria-label="Open invitation and play music"
+            aria-label="Reveal wedding invitation and play music"
             aria-disabled={stage === "opening"}
           >
-            <span className="envelope-folds" aria-hidden="true" />
-            <span className="envelope-flap" aria-hidden="true" />
-            <span className="envelope-content" aria-hidden="true">
-              <span className="envelope-seal">
+            <span className="cover-flap cover-flap-top" aria-hidden="true">
+              <span className="cover-rule" /><Lotus className="cover-lotus" />
+            </span>
+            <span className="cover-flap cover-flap-bottom" aria-hidden="true">
+              <span className="cover-rule" /><Lotus className="cover-lotus" />
+            </span>
+            <span className="cover-content" aria-hidden="true">
+              <span className="cover-seal">
                 <Image src="/art/abhilash-and-harsha.webp" alt="" width={768} height={768}
-                  className="portrait-facing" sizes="(max-width: 540px) 140px, 176px" loading="eager" />
+                  className="portrait-facing" sizes="(max-width: 540px) 215px, 295px" loading="eager" />
               </span>
-              <span className="envelope-welcome">Welcome</span>
-              <span className="envelope-hint"><Lotus /> Open invitation</span>
+              <span className="cover-welcome">Welcome</span>
+              <ChevronsDown className="cover-chevron" size={22} strokeWidth={1.35} />
             </span>
           </button>
         </div>
