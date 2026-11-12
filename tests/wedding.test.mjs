@@ -5,10 +5,10 @@ import { calendar, ceremony, ceremonyDate, countdown, dateLabel, eventDate, even
 
 test("all four event starts match the supplied IST times and calendar downloads", () => {
   const expected = [
-    ["haldi", "2026-12-11T06:30:00Z", "12:00 PM IST"],
-    ["sangeet", "2026-12-11T14:00:00Z", "7:30 PM IST"],
-    ["wedding", "2026-12-12T06:37:00Z", "12:07 PM IST"],
-    ["reception", "2026-12-13T13:30:00Z", "7:00 PM IST"],
+    ["haldi", "2026-12-11T06:30:00Z", "12:00 pm"],
+    ["sangeet", "2026-12-11T14:00:00Z", "7:30 pm"],
+    ["wedding", "2026-12-12T06:37:00Z", "12:07 pm"],
+    ["reception", "2026-12-13T13:30:00Z", "7:00 pm"],
   ];
   assert.deepEqual(events.map(({ id }) => id), expected.map(([id]) => id));
   for (const [index, [, iso, display]] of expected.entries()) {
@@ -44,5 +44,8 @@ test("the supplied directions remain distinct and only known addresses can be co
     "https://maps.app.goo.gl/KD9eEKvNETC8Y5VK6",
   ]);
   assert.equal(wedding.venues.sindewahi.address, null);
+  for (const event of events.filter(({ venue }) => venue === "sindewahi")) {
+    assert.match(calendar(event), /^LOCATION:Jallawar Residency\\,/m);
+  }
   assert.equal(wedding.venues.wedding.name, "Jijau Lawn · Datala Rd, Chandrapur MH.");
 });

@@ -51,7 +51,7 @@ button { cursor: pointer; }
 .eyebrow { color: var(--eyebrow); text-transform: uppercase; font-size: .69rem; font-weight: 700; line-height: 1.5; letter-spacing: .21em; }
 .hero h1 { display: flex; align-items: baseline; justify-content: center; gap: clamp(12px, 1.7vw, 31px); margin: 14px auto 4px; font: 400 clamp(66px, 7.1vw, 112px)/1.06 var(--font-script), Georgia, serif; padding-inline: .13em; }
 .hero h1 .weds { font: italic 500 clamp(22px, 2.7vw, 40px)/1 var(--font-display), Georgia, serif; color: #935f34; }
-.hero-date { font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.hero-date { font-size: .76rem; font-weight: 700; letter-spacing: .12em; }
 .hero-date span { padding: 0 .3em; }
 .scroll-cue { position: absolute; bottom: max(10px, env(safe-area-inset-bottom)); left: 50%; translate: -50% 0; white-space: nowrap; display: grid; justify-items: center; gap: 1px; min-height: 46px; align-content: center; color: var(--wine); font-size: .6rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
 .scroll-cue:hover span { text-decoration: underline; text-underline-offset: 4px; }
@@ -167,7 +167,8 @@ button { cursor: pointer; }
 .count-unit { display: grid; gap: 8px; color: var(--burgundy); position: relative; }
 .count-unit + .count-unit::before { content: ""; position: absolute; top: 11%; bottom: 13%; left: 0; width: 1px; background: linear-gradient(transparent, #c59a5e, transparent); }
 .count-value { font: 600 clamp(39px, 7.1vw, 92px)/.91 var(--font-display), Georgia, serif; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -.05em; }
-.count-label, .count-date { color: var(--eyebrow); font-size: .67rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+.count-label, .count-date { color: var(--eyebrow); font-size: .67rem; font-weight: 700; letter-spacing: .16em; }
+.count-label { text-transform: uppercase; }
 .count-date { color: var(--wine); font-size: .75rem; }
 .count-message { font: 600 clamp(26px, 4vw, 43px)/1.13 var(--font-display), Georgia, serif; margin: 28px 0 14px; color: var(--burgundy); }
 
