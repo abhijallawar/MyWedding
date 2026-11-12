@@ -7,6 +7,7 @@ import SceneMotion from "../components/scene-motion";
 import Countdown from "../components/countdown";
 import CouplePortrait from "../components/couple-portrait";
 import InvitationEntrance from "../components/invitation-entrance";
+import WeddingFireworks from "../components/wedding-fireworks";
 
 const [first, second] = wedding.names;
 const fullDate = dateLabel(ceremony);
@@ -18,6 +19,15 @@ function Directions({ href, label }: { href: string; label: string }) {
     aria-label={`Directions for ${label} (opens in a new tab)`}>
     <ArrowUpRight size={16} aria-hidden="true"/> Directions
   </a>;
+}
+
+function FloralCorners() {
+  return (["left", "right"] as const).map((side) => (
+    <div key={side} className={`frame-corner frame-corner-${side}`}>
+      <Image src="/art/floral-frame.webp" alt="" width={1536} height={1024}
+        quality={85} sizes="(max-width: 540px) 143vw, 118vw"/>
+    </div>
+  ));
 }
 
 export default function Invitation() {
@@ -35,18 +45,10 @@ export default function Invitation() {
           <div className="scene-mist" data-layer="mist"><div className="mist-drift"/></div>
           <div className="scene-flowers" data-layer="flowers">
             <Image className="frame-wide" src="/art/floral-frame.webp" alt="" fill quality={85} sizes="102vw"/>
-            {(["top", "bottom"] as const).map((edge) => (
-              <div key={edge} className={`frame-phone frame-phone-${edge}`}>
-                {(["left", "right"] as const).map((side) => (
-                  <div key={side} className={`frame-corner frame-corner-${side}`}>
-                    <Image src="/art/floral-frame.webp" alt="" width={1536} height={1024}
-                      quality={85} sizes="(max-width: 540px) 143vw, 118vw"/>
-                  </div>
-                ))}
-              </div>
-            ))}
+            <div className="frame-phone frame-phone-top"><FloralCorners/></div>
           </div>
         </div>
+        <div className="frame-phone frame-phone-bottom" aria-hidden="true"><FloralCorners/></div>
         <div className="hero-title relative mx-auto">
           <Flourish/>
           <p className="eyebrow">{wedding.copy.welcome}</p>
@@ -106,6 +108,7 @@ export default function Invitation() {
       <section className="countdown chapter text-center relative isolate" id="countdown" aria-labelledby="countdown-title">
         <Image src="/art/sprig.svg" className="count-sprig count-sprig-left" alt="" width={350} height={350} unoptimized/>
         <Image src="/art/sprig.svg" className="count-sprig count-sprig-right" alt="" width={350} height={350} unoptimized/>
+        <WeddingFireworks/>
         <div className="count-frame mx-auto relative" data-reveal>
           <Flourish/>
           <h2 id="countdown-title">Counting down to forever</h2>

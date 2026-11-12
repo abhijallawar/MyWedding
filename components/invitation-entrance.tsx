@@ -14,12 +14,15 @@ export default function InvitationEntrance({ soundtrack, children }: {
 
   function openInvitation() {
     if (stage !== "closed") return;
+    if (!window.location.hash) window.scrollTo({ top: 0, behavior: "instant" });
     void audio.current?.play().catch(() => {});
     setStage("opening");
   }
 
   useEffect(() => {
-    if (stage === "open") document.getElementById("main")?.focus({ preventScroll: true });
+    if (stage !== "open") return;
+    if (!window.location.hash) window.scrollTo({ top: 0, behavior: "instant" });
+    document.getElementById("main")?.focus({ preventScroll: true });
   }, [stage]);
 
   return (
