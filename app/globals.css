@@ -318,3 +318,159 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+.portrait-facing {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+body:has(.invitation-envelope) { overflow: hidden; }
+
+.invitation-envelope {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: max(26px, env(safe-area-inset-top)) 16px max(26px, env(safe-area-inset-bottom));
+  background: radial-gradient(ellipse at 50% 40%, #923d48, #55212d 78%);
+}
+
+.envelope-paper {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: min(100%, 672px);
+  min-height: clamp(285px, 64vw, 380px);
+  padding: 28px 18px 22px;
+  perspective: 1100px;
+  border: 1px solid #c79b5d;
+  border-radius: 7px;
+  background: #f4e2c1;
+  box-shadow: 0 23px 62px #310e1c80, inset 0 0 45px #cfac7233;
+  color: var(--wine);
+}
+
+.envelope-paper::before {
+  position: absolute;
+  z-index: 2;
+  inset: 9px;
+  border: 1px solid #ab7f4796;
+  border-radius: 3px;
+  content: "";
+  pointer-events: none;
+}
+
+.envelope-paper:focus-visible { outline-color: #fff0d0; border-radius: 7px; }
+
+.envelope-folds,
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.envelope-folds {
+  background:
+    linear-gradient(29deg, #b48448 0 49.7%, transparent 50%) left bottom / 50% 73% no-repeat,
+    linear-gradient(-29deg, #b48448 0 49.7%, transparent 50%) right bottom / 50% 73% no-repeat;
+  opacity: .18;
+}
+
+.envelope-flap {
+  inset-block-end: 39%;
+  z-index: 1;
+  transform-origin: center top;
+  background: #bc925c;
+  clip-path: polygon(0 0, 100% 0, 100% 10%, 50% 100%, 0 10%);
+}
+
+.envelope-flap::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(ellipse at 50% 5%, #fff8e9, transparent 80%),
+    repeating-linear-gradient(118deg, #eddbb6 0 1px, #f3e3c5 1px 5px);
+  clip-path: polygon(0 0, 100% 0, 100% 9%, 50% 99%, 0 9%);
+}
+
+.envelope-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+}
+
+.envelope-seal {
+  position: relative;
+  display: block;
+  width: clamp(125px, 31vw, 176px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 3px double #b68747;
+  border-radius: 50%;
+  background: radial-gradient(circle at 48% 30%, #fff2d4, #e8c8a9);
+  box-shadow: 0 5px 14px #71412842;
+}
+
+.envelope-seal img {
+  position: absolute;
+  inset: 4% auto auto -24%;
+  width: 148%;
+  max-width: none;
+}
+
+.envelope-welcome {
+  margin-top: 9px;
+  font: 400 clamp(44px, 9vw, 67px)/1 var(--font-script), Georgia, serif;
+}
+
+.envelope-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 26px;
+  color: var(--wine);
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.envelope-hint svg { width: 23px; height: 15px; color: #986530; }
+.envelope-paper:hover .envelope-hint { text-decoration: underline; text-underline-offset: 4px; }
+.invitation-envelope[data-stage="opening"] { animation: envelope-reveal .88s .2s both ease-in-out; }
+.invitation-envelope[data-stage="opening"] .envelope-flap { animation: envelope-unfold .85s both cubic-bezier(.2,.68,.22,1); }
+.invitation-envelope[data-stage="opening"] .envelope-content { animation: envelope-lift .75s both ease-out; }
+
+@keyframes envelope-reveal {
+  0%, 22% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes envelope-unfold {
+  0% { transform: rotateX(0); }
+  100% { transform: rotateX(-155deg); }
+}
+
+@keyframes envelope-lift {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-22px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-envelope[data-stage="opening"],
+  .invitation-envelope[data-stage="opening"] .envelope-flap,
+  .invitation-envelope[data-stage="opening"] .envelope-content {
+    animation-duration: 1ms;
+    animation-delay: 0s;
+  }
+}

@@ -10,14 +10,16 @@ export default function CouplePortrait({ monogram }: { monogram: string }) {
         <Sparkle className="portrait-sparkle portrait-sparkle-right" aria-hidden="true" />
         <span className="portrait-petal portrait-petal-left" aria-hidden="true" />
         <span className="portrait-petal portrait-petal-right" aria-hidden="true" />
-        <Image
-          className="couple-illustration"
-          src="/art/abhilash-and-harsha.webp"
-          alt="Illustrated portrait of Abhilash and Harsha in traditional wedding attire"
-          width={768}
-          height={768}
-          sizes="(max-width: 600px) 78vw, 350px"
-        />
+        <div className="couple-illustration">
+          <Image
+            className="portrait-facing"
+            src="/art/abhilash-and-harsha.webp"
+            alt="Abhilash on the left and Harsha on the right in traditional wedding attire"
+            width={768}
+            height={768}
+            sizes="(max-width: 600px) 78vw, 350px"
+          />
+        </div>
       </div>
       <span className="portrait-monogram" aria-hidden="true">{monogram}</span>
     </figure>

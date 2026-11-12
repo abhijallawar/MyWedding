@@ -7,7 +7,7 @@ import SceneMotion from "../components/scene-motion";
 import Countdown from "../components/countdown";
 import CopyAddress from "../components/copy-address";
 import CouplePortrait from "../components/couple-portrait";
-import WeddingMusic from "../components/wedding-music";
+import InvitationEntrance from "../components/invitation-entrance";
 
 const [first, second] = wedding.names;
 const fullDate = dateLabel(ceremony);
@@ -22,7 +22,8 @@ function Directions({ href, label, filled = false }: { href: string; label: stri
 }
 
 export default function Invitation() {
-  return <SceneMotion>
+  return <InvitationEntrance soundtrack={wedding.music.src}>
+    <SceneMotion>
     <a href="#main" className="skip-link">Skip to invitation</a>
     <main id="main" tabIndex={-1}>
       <section className="hero isolate relative text-center" aria-labelledby="couple">
@@ -144,6 +145,6 @@ export default function Invitation() {
         <a className="text-action" href="#events">Back to the celebrations <ArrowRight size={16} aria-hidden="true"/></a>
       </div>
     </footer>
-    <WeddingMusic src={wedding.music.src}/>
-  </SceneMotion>;
+    </SceneMotion>
+  </InvitationEntrance>;
 }
