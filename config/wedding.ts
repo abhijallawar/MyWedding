@@ -5,7 +5,7 @@ export const wedding = {
   timezoneLabel: "IST",
   names: ["Abhilash", "Harsha"],
   monogram: "A & H",
-  music: { src: "/music/wedding-soundtrack.mp3" },
+  music: { src: "/music/wedding-soundtrack-trimmed.mp3" },
   copy: {
     welcome: "Together with our families",
     invitation: "With joyful hearts, we invite you to celebrate our marriage. Join us for three days of colour, music and togetherness as we begin this new chapter.",
