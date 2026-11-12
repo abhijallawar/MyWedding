@@ -5,7 +5,6 @@ import { ceremony, ceremonyDate, dateLabel, eventDate, events, timeLabel } from 
 import { Flourish, Lotus, Motif } from "../components/ornaments";
 import SceneMotion from "../components/scene-motion";
 import Countdown from "../components/countdown";
-import CopyAddress from "../components/copy-address";
 import CouplePortrait from "../components/couple-portrait";
 import InvitationEntrance from "../components/invitation-entrance";
 
@@ -14,10 +13,10 @@ const fullDate = dateLabel(ceremony);
 const weddingTime = timeLabel(ceremony);
 const dateCaption = `${fullDate}, ${weddingTime}`;
 
-function Directions({ href, label, filled = false }: { href: string; label: string; filled?: boolean }) {
-  return <a className={filled ? "map-action" : "text-action"} href={href} target="_blank" rel="noopener noreferrer"
+function Directions({ href, label }: { href: string; label: string }) {
+  return <a className="text-action" href={href} target="_blank" rel="noopener noreferrer"
     aria-label={`Directions for ${label} (opens in a new tab)`}>
-    {filled ? <MapPin size={15} aria-hidden="true"/> : <ArrowUpRight size={16} aria-hidden="true"/>} Directions
+    <ArrowUpRight size={16} aria-hidden="true"/> Directions
   </a>;
 }
 
@@ -102,26 +101,6 @@ export default function Invitation() {
             </li>;
           })}
         </ol>
-      </section>
-
-      <section className="venues chapter" id="venues" aria-labelledby="venues-title">
-        <div className="chapter-intro mx-auto text-center" data-reveal>
-          <Flourish/>
-          <h2 id="venues-title">Join us here</h2>
-        </div>
-        <div className="venue-grid mx-auto grid">
-          {Object.values(wedding.venues).map((venue) => <article key={venue.title} className={`venue venue-${venue.emblem}`} data-reveal>
-            <div className="venue-heading">
-              <span className="venue-emblem"><Motif kind={venue.emblem} animated={false}/></span>
-              <h3>{venue.title}</h3>
-            </div>
-            <p className="venue-address">{venue.name}{(venue.locality || (venue.address !== venue.name && venue.address)) && <><br/>{venue.locality || venue.address}</>}</p>
-            <div className="venue-actions flex items-center flex-wrap">
-              <Directions href={venue.directions} label={venue.title} filled/>
-              {venue.address && <CopyAddress address={venue.address}/>}
-            </div>
-          </article>)}
-        </div>
       </section>
 
       <section className="countdown chapter text-center relative isolate" id="countdown" aria-labelledby="countdown-title">
