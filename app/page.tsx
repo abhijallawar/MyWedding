@@ -7,7 +7,6 @@ import SceneMotion from "../components/scene-motion";
 import Countdown from "../components/countdown";
 import CouplePortrait from "../components/couple-portrait";
 import InvitationEntrance from "../components/invitation-entrance";
-import WeddingFireworks from "../components/wedding-fireworks";
 
 const [first, second] = wedding.names;
 const fullDate = dateLabel(ceremony);
@@ -108,7 +107,6 @@ export default function Invitation() {
       <section className="countdown chapter text-center relative isolate" id="countdown" aria-labelledby="countdown-title">
         <Image src="/art/sprig.svg" className="count-sprig count-sprig-left" alt="" width={350} height={350} unoptimized/>
         <Image src="/art/sprig.svg" className="count-sprig count-sprig-right" alt="" width={350} height={350} unoptimized/>
-        <WeddingFireworks/>
         <div className="count-frame mx-auto relative" data-reveal>
           <Flourish/>
           <h2 id="countdown-title">Counting down to forever</h2>

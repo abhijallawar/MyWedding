@@ -160,36 +160,6 @@ button { cursor: pointer; }
 
 .countdown { overflow: hidden; background: radial-gradient(ellipse at center, #f5e4c780, transparent 73%); }
 .count-sprig { bottom: 0; opacity: .35; mask-image: linear-gradient(#000 64%, transparent); }
-.wedding-fireworks { margin: 0 auto clamp(24px, 4vw, 38px); }
-.wedding-fireworks-button {
-  display: inline-flex;
-  min-height: 46px;
-  align-items: center;
-  gap: 9px;
-  padding: .55rem 1.1rem;
-  border: 1px solid #b48a54;
-  border-radius: 2px;
-  background: #fff9ed;
-  color: var(--wine);
-  font-size: .82rem;
-  font-weight: 700;
-  transition: background-color .2s;
-}
-.wedding-fireworks-button:hover { background: #f3e2c7; }
-.wedding-fireworks-player {
-  max-width: 600px;
-  margin: 20px auto 0;
-  padding: 5px;
-  border: 1px solid #cfad73;
-  background: #fff9ed;
-}
-.wedding-fireworks-player video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  background: #171c31;
-}
 .count-frame { max-width: 930px; border: 1px solid #cfad73; padding: clamp(43px, 6vw, 80px) clamp(12px, 5vw, 65px); background: #fff9edd9; }
 .count-frame::before { content: ""; position: absolute; inset: 6px; border: 1px solid #e1c997; pointer-events: none; }
 .count-frame h2 { font-size: clamp(40px, 5.45vw, 77px); }
