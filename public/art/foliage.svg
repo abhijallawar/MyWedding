@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMax slice">
+<defs><linearGradient id="g" x2="0" y2="1"><stop stop-color="#7d8262"/><stop offset="1" stop-color="#a29976"/></linearGradient>
+<g id="tree" fill="url(#g)">
+<path d="M0 0c1-55 9-114 4-179 14 18 9 71 14 99l28-40 8 3C37-82 19-55 22 0Z" fill="#8a7958"/>
+<path d="M4-161c-58 17-77-15-66-40-23-18-7-52 22-49-9-40 40-63 68-38 33-23 70 0 65 35 31 14 31 44 9 60-9 33-63 37-98 32Z"/>
+<path opacity=".56" fill="#bab18a" d="M-64-210c33 22 53 15 82 0 35 15 65 5 88-16 6 22-7 44-33 47-16 20-46 17-70 12-37 10-70-9-67-43Z"/>
+<path d="M18-103c-21-12-19-39 0-48-6-21 24-38 39-23 17-11 37 3 39 21 19 11 14 35-4 43-17 17-51 16-74 7Z"/>
+</g></defs>
+<g opacity=".63"><use href="#tree" transform="translate(93 740) scale(.97)"/><use href="#tree" transform="translate(232 751) scale(.52)"/><use href="#tree" transform="translate(1336 768) scale(.52)"/><use href="#tree" transform="translate(1492 761) scale(.97)"/></g>
+<path fill="#a19a77" opacity=".53" d="M0 723c148-24 228-11 375 17 126 24 240 37 425 36 216-1 288-20 430-38 147-19 272-36 370-7v69H0Z"/>
+</svg>
