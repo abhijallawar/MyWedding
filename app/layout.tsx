@@ -10,11 +10,11 @@ const body = localFont({ src: "./fonts/dm-sans.woff2", variable: "--font-body", 
 const title = wedding.names.join(" weds ");
 const description = "An invitation to the wedding of " + wedding.names.join(" and ") + ".";
 const previewImage = {
-  url: "/art/invitation-preview.jpg",
-  width: 1200,
-  height: 630,
+  url: "/art/invitation-cover-preview.jpg",
+  width: 1179,
+  height: 2038,
   type: "image/jpeg",
-  alt: "Illustration of Abhilash and Harsha in wedding attire in a watercolor garden",
+  alt: "Abhilash and Harsha on an illustrated wedding invitation cover with a floral border and the word Welcome",
 };
 
 export const metadata: Metadata = {
